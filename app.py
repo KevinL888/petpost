@@ -36,12 +36,7 @@ def index():
 
         # Upload image to S3
         image_filename = f"{uuid.uuid4()}_{image.filename}"
-        s3.upload_fileobj(
-            image,
-            S3_BUCKET,
-            image_filename,
-            ExtraArgs={'ACL': 'public-read'}
-        )
+        s3.upload_fileobj(image, S3_BUCKET, image_filename, ExtraArgs={'ACL': 'public-read'})
         image_url = f"https://{S3_BUCKET}.s3.{S3_REGION}.amazonaws.com/{image_filename}"
 
         pet = {
