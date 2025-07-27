@@ -1,24 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>PetPost</title>
+    <meta charset="UTF-8">
+    <title>PetPost – Adopt a Pet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Upload a Pet</h1>
-    <form method="POST" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="Name" required><br>
-        <input type="text" name="age" placeholder="Age" required><br>
-        <input type="text" name="breed" placeholder="Breed" required><br>
-        <input type="file" name="image" required><br>
-        <button type="submit">Submit</button>
-    </form>
-    <hr>
-    {% for pet in pets %}
-        <div>
-            <h3>{{ pet.name }}</h3>
-            <p>{{ pet.age }} years old • {{ pet.breed }}</p>
-            <img src="{{ pet.image_url }}" width="200">
+    <div class="container">
+        <h1>🐾 PetPost</h1>
+
+        <form method="POST" enctype="multipart/form-data" class="upload-form">
+            <input type="text" name="name" placeholder="Pet Name" required>
+            <input type="text" name="age" placeholder="Age" required>
+            <input type="text" name="breed" placeholder="Breed" required>
+            <input type="file" name="image" required>
+            <button type="submit">➕ Add Pet</button>
+        </form>
+
+        <h2>🐶 Adoptable Pets</h2>
+        <div class="pet-grid">
+            {% for pet in pets %}
+            <div class="pet-card">
+                <img src="{{ pet.image_url }}" alt="{{ pet.name }}">
+                <h3>{{ pet.name }}</h3>
+                <p>{{ pet.age }} years old</p>
+                <p>{{ pet.breed }}</p>
+            </div>
+            {% endfor %}
         </div>
-    {% endfor %}
+    </div>
 </body>
 </html>
