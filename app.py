@@ -6,8 +6,8 @@ import os
 
 app = Flask(__name__)
 
-S3_BUCKET = 'your-s3-bucket-name'
-S3_REGION = 'your-region'  # e.g. 'us-east-1'
+S3_BUCKET = 'petpost-uploads-kevin'
+S3_REGION = 'us-east-2'
 DATA_FILE = 'pets.json'
 
 s3 = boto3.client('s3')
