@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+form {
+    margin-bottom: 40px;
+}
+
+input, button {
+    display: block;
+    margin: 10px 0;
+}
+
+.pets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.pet-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 200px;
+}
+
+.pet-card img {
+    width: 100%;
+    height: auto;
+}
